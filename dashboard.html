@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client Dashboard — ACE Infra Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-require-auth>
+
+<div class="sidebar-scrim" id="sidebar-scrim"></div>
+
+<div class="app-shell">
+  <aside class="app-sidebar" id="app-sidebar">
+    <a href="index.html" class="brand">
+      <svg class="mark" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#0C1830"/><path d="M9 29L19 9L23 20L27 13L31 29" stroke="#12A594" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="9" r="2.2" fill="#F2A93B"/></svg>
+      ACE Infra
+    </a>
+
+    <div class="sidebar-user" style="padding:.8rem .3rem 1.4rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1rem">
+      <div class="avatar" id="side-avatar">VS</div>
+      <div style="min-width:0">
+        <div id="side-name" style="color:#fff;font-weight:600;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Client</div>
+        <div id="side-company" style="font-size:.76rem;color:var(--color-text-on-dark-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">—</div>
+      </div>
+    </div>
+
+    <nav class="app-nav">
+      <a href="#tab-overview" class="active" data-nav-tab="tab-overview">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+        Overview
+      </a>
+      <a href="#tab-projects" data-nav-tab="tab-projects">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+        My projects
+      </a>
+      <a href="#tab-invoices" data-nav-tab="tab-invoices">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 12h6M9 16h6"/></svg>
+        Invoices
+      </a>
+      <a href="#tab-quotes" data-nav-tab="tab-quotes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+        Quote requests
+      </a>
+      <a href="#tab-profile" data-nav-tab="tab-profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+        Profile
+      </a>
+      <a href="index.html" style="margin-top:1rem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        Back to site
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <button class="btn btn-ghost btn-block" onclick="aceLogout()">Log out</button>
+    </div>
+  </aside>
+
+  <main class="app-main">
+    <div class="app-topbar">
+      <div style="display:flex;align-items:center;gap:1rem">
+        <button class="app-toggle" id="app-toggle" aria-label="Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <div>
+          <h1>Welcome back, <span id="dash-username">Client</span></h1>
+          <p class="muted">Here's what's happening across your sites today.</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem">
+        <button class="btn btn-primary btn-sm" data-nav-tab-btn="tab-quotes">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:.3rem;vertical-align:-2px"><path d="M12 5v14M5 12h14"/></svg>
+          New quote request
+        </button>
+        <div class="avatar" id="dash-avatar" style="width:38px;height:38px">VS</div>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="lbl">Active projects</div><div class="val" id="kpi-active">0</div><div class="delta up">On track</div></div>
+      <div class="kpi-card"><div class="lbl">Completed projects</div><div class="val" id="kpi-completed">0</div><div class="delta up">All time</div></div>
+      <div class="kpi-card"><div class="lbl">Invoices due</div><div class="val" id="kpi-due">₹0</div><div class="delta down">Action needed</div></div>
+      <div class="kpi-card"><div class="lbl">Quote requests</div><div class="val" id="kpi-quotes">0</div><div class="delta up">Submitted</div></div>
+    </div>
+
+    <div class="panel">
+      <div class="tabs" data-tabs>
+        <button class="tab-btn active" data-tab="tab-overview">Overview</button>
+        <button class="tab-btn" data-tab="tab-projects">My projects</button>
+        <button class="tab-btn" data-tab="tab-invoices">Invoices</button>
+        <button class="tab-btn" data-tab="tab-quotes">Quote requests</button>
+        <button class="tab-btn" data-tab="tab-profile">Profile</button>
+      </div>
+
+      <!-- OVERVIEW -->
+      <div class="tab-panel active" id="tab-overview">
+        <div class="dash-grid-2">
+          <div>
+            <div class="panel-head"><h3>Recent projects</h3><a href="#tab-projects" data-nav-tab-btn="tab-projects" class="muted" style="font-size:.85rem">View all →</a></div>
+            <div class="table-scroll">
+              <table class="data-table">
+                <thead><tr><th>ID</th><th>Project</th><th>Status</th><th>Progress</th><th>Updated</th></tr></thead>
+                <tbody id="projects-tbody-overview"></tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <div class="panel-head"><h3>Notifications</h3><span class="pill pill-open" id="notif-count-wrap">🔔 <span id="notif-count">0</span></span></div>
+            <div id="notif-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="tab-panel" id="tab-projects">
+        <div class="panel-head">
+          <h3>My projects</h3>
+          <select id="project-filter" style="padding:.5rem .8rem;border-radius:6px;border:1px solid var(--color-border)">
+            <option value="all">All statuses</option>
+            <option value="Open">Open</option>
+            <option value="In Progress">In progress</option>
+            <option value="In Review">In review</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead><tr><th>ID</th><th>Project</th><th>Status</th><th>Progress</th><th>Updated</th></tr></thead>
+            <tbody id="projects-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- INVOICES -->
+      <div class="tab-panel" id="tab-invoices">
+        <div class="panel-head"><h3>Invoices</h3></div>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead><tr><th>Invoice</th><th>Project</th><th>Amount</th><th>Status</th><th>Due date</th><th></th></tr></thead>
+            <tbody id="invoices-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- QUOTES -->
+      <div class="tab-panel" id="tab-quotes">
+        <div class="dash-grid-2">
+          <div>
+            <div class="panel-head"><h3>Your quote requests</h3></div>
+            <div class="table-scroll">
+              <table class="data-table">
+                <thead><tr><th>ID</th><th>Service</th><th>City</th><th>Status</th><th>Submitted</th></tr></thead>
+                <tbody id="quotes-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <div class="panel-head"><h3>Request a new quote</h3></div>
+            <form id="dash-quote-form">
+              <div class="form-field"><label>Service needed</label>
+                <select name="service" required>
+                  <option>Interior Work</option><option>ATM Setup &amp; R&amp;M</option><option>Site Acquisition</option>
+                  <option>Branding &amp; Glow Sign</option><option>Cloud Kitchen Fit-out</option><option>Electrical / Plumbing / Civil</option>
+                </select>
+              </div>
+              <div class="form-field"><label>City</label><input name="city" required></div>
+              <div class="form-field"><label>Details</label><textarea name="message" rows="3" placeholder="Site count, timeline, budget..."></textarea></div>
+              <button class="btn btn-primary btn-block" type="submit">Submit request</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFILE -->
+      <div class="tab-panel" id="tab-profile">
+        <div class="panel-head"><h3>Your profile</h3></div>
+        <form id="profile-form" style="max-width:480px">
+          <div class="form-field"><label>Full name</label><input name="name" required></div>
+          <div class="form-field"><label>Email</label><input name="email" type="email" disabled></div>
+          <div class="form-field"><label>Company</label><input name="company"></div>
+          <button class="btn btn-primary" type="submit">Save changes</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+  /* wire up sidebar nav + quick-action buttons to the same tab system used by .tabs */
+  function activateTab(id){
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-tab') === id));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === id));
+    document.querySelectorAll('.app-nav a[data-nav-tab]').forEach(a => a.classList.toggle('active', a.getAttribute('data-nav-tab') === id));
+    const sidebar = document.getElementById('app-sidebar'), scrim = document.getElementById('sidebar-scrim');
+    if(sidebar) sidebar.classList.remove('open');
+    if(scrim) scrim.classList.remove('open');
+  }
+  document.querySelectorAll('[data-nav-tab]').forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); activateTab(a.getAttribute('data-nav-tab')); }));
+  document.querySelectorAll('[data-nav-tab-btn]').forEach(a => a.addEventListener('click', (e) => { e.preventDefault(); activateTab(a.getAttribute('data-nav-tab-btn')); }));
+
+  /* mirror the projects table into the Overview panel (top 3 rows) */
+  function mirrorOverviewProjects(){
+    const src = document.getElementById('projects-tbody');
+    const dest = document.getElementById('projects-tbody-overview');
+    if(src && dest){
+      const rows = src.querySelectorAll('tr');
+      dest.innerHTML = Array.from(rows).slice(0,3).map(r => r.outerHTML).join('') || src.innerHTML;
+    }
+  }
+  document.addEventListener('DOMContentLoaded', () => setTimeout(mirrorOverviewProjects, 30));
+</script>
+</body>
+</html>

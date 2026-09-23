@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — ACE Infra Solutions</title>
+<meta name="description" content="ATM installs, bank branch interiors, dark-store fit-outs, cloud kitchens and branding rollouts delivered by ACE Infra Solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <svg class="mark" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#12213A"/><path d="M9 29L19 9L23 20L27 13L31 29" stroke="#12A594" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="9" r="2.2" fill="#F2A93B"/></svg>
+      ACE Infra Solutions
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="clients.html">Clients</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="login.html" class="btn btn-outline" data-auth-link>Client login</a>
+      <button class="btn btn-primary" data-open-modal="modal-quote">Get a quote</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <div class="crumb"><a href="index.html">Home</a> / Projects</div>
+    <h1>A sample of sites we've delivered</h1>
+    <p>Filter by trade to see the kind of work behind each rollout.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="tabs" data-tabs style="margin-bottom:2rem">
+      <button class="tab-btn active" data-filter="all">All</button>
+      <button class="tab-btn" data-filter="atm">ATM &amp; Banking</button>
+      <button class="tab-btn" data-filter="retail">Dark Store &amp; Retail</button>
+      <button class="tab-btn" data-filter="food">Cloud Kitchen</button>
+      <button class="tab-btn" data-filter="branding">Branding</button>
+      <button class="tab-btn" data-filter="corporate">Corporate</button>
+    </div>
+
+    <div class="grid grid-3" id="project-grid">
+
+      <div class="project-card reveal" data-cat="atm" onclick="aceOpenModal('p-atm1')">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#12213A,#1F3A5C)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M8 8V6a4 4 0 018 0v2M9 14h.01M15 14h.01"/></svg></div>
+        <div class="project-body"><span class="project-tag">ATM Network</span><h4>ATM setup &amp; site sourcing</h4><p>BOI ATM — full electrical panel, HVAC and cash-machine bay install.</p></div>
+      </div>
+
+      <div class="project-card reveal" data-cat="atm" onclick="aceOpenModal('p-federal')">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#0C8175,#12A594)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg></div>
+        <div class="project-body"><span class="project-tag">Banking</span><h4>Federal Bank branch interior</h4><p>Reception, glass-partition teller counters and back-office cabin.</p></div>
+      </div>
+
+      <div class="project-card reveal" data-cat="atm" onclick="aceOpenModal('p-kiosk')">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#8A5A16,#F2A93B)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a4 4 0 018 0v2"/></svg></div>
+        <div class="project-body"><span class="project-tag">Kiosk</span><h4>IDFC First &amp; DBS bank kiosks</h4><p>Prefabricated branded kiosks installed in high-footfall locations.</p></div>
+      </div>
+
+      <div class="project-card reveal" data-cat="retail" onclick="aceOpenModal('p-zepto')">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#12213A,#3E5A80)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></div>
+        <div class="project-body"><span class="project-tag">Dark Store</span><h4>Zepto electrical &amp; racking</h4><p>Panel wiring, mesh partitioning and shelving grid across dark-store units.</p></div>
+      </div>
+
+      <div class="project-body-only" style="display:none"></div>
+
+      <div class="project-card reveal" data-cat="retail" onclick="aceOpenModal('p-bigbasket')">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#0C1830,#12213A)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"/></svg></div>
+        <div class="project-body"><span class="project-tag">QMIN &amp; Starbucks</span><h4>Big Basket QMIN fit-out shell</h4><p>Civil, plumbing and electrical shell-and-core for quick-commerce format.</p></div>
+      </div>
+
+      <div class="project-card reveal" data-cat="food" onclick="aceOpenModal('p-mukunda')">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#0C8175,#0C1830)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></div>
+        <div class="project-body"><span class="project-tag">Cloud Kitchen</span><h4>Mukunda Foods kitchen &amp; office</h4><p>Commercial kitchen layout with ventilation and adjoining office space.</p></div>
+      </div>
+
+      <div class="project-card reveal" data-cat="branding" onclick="aceOpenModal('p-allcargo')">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#B23A32,#F2A93B)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg></div>
+        <div class="project-body"><span class="project-tag">Branding</span><h4>AllCargo–Gati wall branding</h4><p>Full office branding — wall graphics, reception counter and signage.</p></div>
+      </div>
+
+      <div class="project-card reveal" data-cat="corporate" onclick="aceOpenModal('p-allcargo2')">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#3E5A80,#12213A)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <div class="project-body"><span class="project-tag">Corporate Office</span><h4>Logistics office workstation fit-out</h4><p>Open-plan desking, cabins and meeting rooms for a logistics HQ floor.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container form-card center" style="max-width:640px">
+    <h2>Like what you see?</h2>
+    <button class="btn btn-primary" data-open-modal="modal-quote">Start your project</button>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand" style="color:#fff;margin-bottom:1rem">
+        <svg class="mark" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#0C1830"/><path d="M9 29L19 9L23 20L27 13L31 29" stroke="#12A594" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="9" r="2.2" fill="#F2A93B"/></svg>
+        ACE Infra Solutions
+      </div>
+      <p style="max-width:32ch">End-to-end site acquisition, interior fit-out, ATM setup, R&amp;M and branding — deployed across 15,000+ sites and 95+ dark stores nationwide.</p>
+      <form id="newsletter-form" style="display:flex;gap:.5rem;margin-top:1rem;max-width:340px">
+        <input type="email" required placeholder="Work email" style="flex:1;padding:.6rem .8rem;border-radius:4px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff">
+        <button class="btn btn-primary btn-sm" type="submit">Join</button>
+      </form>
+    </div>
+    <div><h5>Company</h5><ul><li><a href="about.html">About us</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="clients.html">Clients</a></li></ul></div>
+    <div><h5>Services</h5><ul><li><a href="services.html#interior">Interior &amp; fit-out</a></li><li><a href="services.html#atm">ATM setup &amp; R&amp;M</a></li><li><a href="services.html#branding">Branding &amp; signage</a></li><li><a href="services.html#acquisition">Site acquisition</a></li></ul></div>
+    <div><h5>Get in touch</h5><ul><li>Highland Corporate Park, Office SB-48, 2nd Floor, Kapurbawdi Junction, Thane West 400607</li><li>+91 77381 49994</li><li>Vivek@aceinfrasolutions.com</li></ul></div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; <span data-year></span> ACE Infra Solutions. All rights reserved. GST 27BKMPS5822F1ZT</span>
+    <span>Efficiency. Quality. Excellence.</span>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="modal-quote">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="quote-title">
+    <button class="modal-close" data-close-modal aria-label="Close">&times;</button>
+    <h3 id="quote-title">Request a project quote</h3>
+    <p class="modal-sub">Tell us about the site and we'll respond within 24 hours.</p>
+    <form data-quote-form>
+      <div class="form-row">
+        <div class="form-field"><label>Full name</label><input name="name" required></div>
+        <div class="form-field"><label>Company</label><input name="company"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label>Service needed</label>
+          <select name="service">
+            <option>Interior Work</option><option>ATM Setup &amp; R&amp;M</option><option>Site Acquisition</option>
+            <option>Branding &amp; Glow Sign</option><option>Cloud Kitchen Fit-out</option><option>Electrical / Plumbing / Civil</option>
+          </select>
+        </div>
+        <div class="form-field"><label>City</label><input name="city" required></div>
+      </div>
+      <div class="form-field"><label>Project details</label><textarea name="message" rows="3"></textarea></div>
+      <button class="btn btn-primary btn-block" type="submit">Submit request</button>
+    </form>
+  </div>
+</div>
+
+<!-- Project detail popups -->
+<div class="modal-overlay" id="p-atm1"><div class="modal"><button class="modal-close" data-close-modal>&times;</button><span class="project-tag">ATM Network</span><h3>ATM setup &amp; site sourcing</h3><p class="modal-sub">Bank of India ATM — site survey, electrical DB, split AC, ceiling lighting and cash-machine bay fitted to bank spec, with GPS-tagged progress photos at every stage.</p><button class="btn btn-primary btn-block" data-close-modal>Close</button></div></div>
+<div class="modal-overlay" id="p-federal"><div class="modal"><button class="modal-close" data-close-modal>&times;</button><span class="project-tag">Banking</span><h3>Federal Bank branch interior</h3><p class="modal-sub">Full branch interior in Thane West — reception, frosted-glass teller counters, manager cabin and back-office storage, delivered to Federal Bank's branch design standard.</p><button class="btn btn-primary btn-block" data-close-modal>Close</button></div></div>
+<div class="modal-overlay" id="p-kiosk"><div class="modal"><button class="modal-close" data-close-modal>&times;</button><span class="project-tag">Kiosk</span><h3>Bank kiosks — IDFC First &amp; DBS</h3><p class="modal-sub">Prefabricated, brand-wrapped kiosks for high-footfall sites, built off-site for fast on-location installation with minimal disruption.</p><button class="btn btn-primary btn-block" data-close-modal>Close</button></div></div>
+<div class="modal-overlay" id="p-zepto"><div class="modal"><button class="modal-close" data-close-modal>&times;</button><span class="project-tag">Dark Store</span><h3>Zepto — electrical &amp; racking</h3><p class="modal-sub">Distribution-board installation, cable tray runs, wire-mesh partitioning and multi-tier shelving across several dark-store units.</p><button class="btn btn-primary btn-block" data-close-modal>Close</button></div></div>
+<div class="modal-overlay" id="p-bigbasket"><div class="modal"><button class="modal-close" data-close-modal>&times;</button><span class="project-tag">QMIN &amp; Starbucks</span><h3>Big Basket QMIN shell &amp; core</h3><p class="modal-sub">Civil flooring, plumbing rough-in and electrical conduiting delivered as shell-and-core ahead of kitchen equipment fit-out.</p><button class="btn btn-primary btn-block" data-close-modal>Close</button></div></div>
+<div class="modal-overlay" id="p-mukunda"><div class="modal"><button class="modal-close" data-close-modal>&times;</button><span class="project-tag">Cloud Kitchen</span><h3>Mukunda Foods kitchen &amp; office</h3><p class="modal-sub">Commercial kitchen with extraction hoods and prep counters, alongside an adjoining office fit-out for staff and administration.</p><button class="btn btn-primary btn-block" data-close-modal>Close</button></div></div>
+<div class="modal-overlay" id="p-allcargo"><div class="modal"><button class="modal-close" data-close-modal>&times;</button><span class="project-tag">Branding</span><h3>AllCargo–Gati wall branding</h3><p class="modal-sub">Reception counter build, large-format wall graphics and motivational branding across an operations floor.</p><button class="btn btn-primary btn-block" data-close-modal>Close</button></div></div>
+<div class="modal-overlay" id="p-allcargo2"><div class="modal"><button class="modal-close" data-close-modal>&times;</button><span class="project-tag">Corporate Office</span><h3>Logistics office workstation fit-out</h3><p class="modal-sub">Open-plan desking, glass cabins and a branded operations bay for a logistics company's regional office.</p><button class="btn btn-primary btn-block" data-close-modal>Close</button></div></div>
+
+<script src="js/main.js"></script>
+<script>
+  document.querySelectorAll('[data-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.getAttribute('data-filter');
+      document.querySelectorAll('#project-grid .project-card').forEach(card => {
+        card.style.display = (f === 'all' || card.getAttribute('data-cat') === f) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

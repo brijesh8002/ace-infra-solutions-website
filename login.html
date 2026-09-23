@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client Login — ACE Infra Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .auth-wrap{ min-height:100vh; display:grid; grid-template-columns: 1fr 1fr; }
+  .auth-side{ background: var(--color-primary); color:#fff; padding: 3rem; display:flex; flex-direction:column; justify-content:space-between; }
+  .auth-form-side{ display:flex; align-items:center; justify-content:center; padding: 2rem 1.5rem; }
+  @media (max-width:900px){ .auth-wrap{ grid-template-columns:1fr; } .auth-side{ padding:2rem 1.5rem; } }
+  #auth-error{ display:none; background:#FDEBEA; color:#B23A32; padding:.7rem .9rem; border-radius:var(--radius-s); font-size:.85rem; margin-bottom:1rem; }
+</style>
+</head>
+<body>
+<div class="auth-wrap">
+  <div class="auth-side">
+    <div>
+      <a href="index.html" class="brand" style="color:#fff">
+        <svg class="mark" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#0C1830"/><path d="M9 29L19 9L23 20L27 13L31 29" stroke="#12A594" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="9" r="2.2" fill="#F2A93B"/></svg>
+        ACE Infra Solutions
+      </a>
+      <h1 style="color:#fff;margin-top:3rem;max-width:14ch">Track every site from one dashboard</h1>
+      <p style="color:var(--color-text-on-dark-muted);max-width:36ch">Live project status, invoices, quote history and notifications — all in one place, updated in real time.</p>
+    </div>
+    <div class="hero-card" style="max-width:340px">
+      <div class="eyebrow-line" style="color:#12A594">Try it now</div>
+      <p style="color:#fff;margin:0;font-size:.9rem">Use the demo account to explore the client dashboard instantly — no sign-up needed.</p>
+    </div>
+  </div>
+  <div class="auth-form-side">
+    <div class="form-card" style="max-width:400px;width:100%">
+      <h2 style="margin-bottom:.2rem">Welcome back</h2>
+      <p class="muted" style="margin-bottom:1.6rem">Log in to your client dashboard.</p>
+      <div id="auth-error"></div>
+      <form id="login-form">
+        <div class="form-field"><label>Email</label><input type="email" name="email" required></div>
+        <div class="form-field"><label>Password</label><input type="password" name="password" required></div>
+        <button class="btn btn-primary btn-block" type="submit">Log in</button>
+      </form>
+      <button class="btn btn-outline btn-block" style="margin-top:.8rem" data-fill-demo>Fill demo credentials</button>
+      <p class="muted" style="text-align:center;margin-top:1.4rem;margin-bottom:0">New here? <a href="register.html" style="color:var(--color-accent-600);font-weight:600">Create an account</a></p>
+      <p class="muted" style="text-align:center;margin-top:.4rem"><a href="index.html" style="color:var(--color-text-muted)">&larr; Back to site</a></p>
+    </div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create Account — ACE Infra Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .auth-wrap{ min-height:100vh; display:grid; grid-template-columns: 1fr 1fr; }
+  .auth-side{ background: var(--color-primary); color:#fff; padding: 3rem; display:flex; flex-direction:column; justify-content:space-between; }
+  .auth-form-side{ display:flex; align-items:center; justify-content:center; padding: 2rem 1.5rem; }
+  @media (max-width:900px){ .auth-wrap{ grid-template-columns:1fr; } .auth-side{ padding:2rem 1.5rem; } }
+  #auth-error{ display:none; background:#FDEBEA; color:#B23A32; padding:.7rem .9rem; border-radius:var(--radius-s); font-size:.85rem; margin-bottom:1rem; }
+</style>
+</head>
+<body>
+<div class="auth-wrap">
+  <div class="auth-side">
+    <div>
+      <a href="index.html" class="brand" style="color:#fff">
+        <svg class="mark" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#0C1830"/><path d="M9 29L19 9L23 20L27 13L31 29" stroke="#12A594" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="9" r="2.2" fill="#F2A93B"/></svg>
+        ACE Infra Solutions
+      </a>
+      <h1 style="color:#fff;margin-top:3rem;max-width:14ch">Create your client account</h1>
+      <p style="color:var(--color-text-on-dark-muted);max-width:36ch">Set up an account to request quotes, track live projects and manage invoices online.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">15,000<span class="plus">+</span></div><div class="lbl">Sites deployed</div></div>
+      <div class="hero-stat"><div class="num">10</div><div class="lbl">States covered</div></div>
+    </div>
+  </div>
+  <div class="auth-form-side">
+    <div class="form-card" style="max-width:420px;width:100%">
+      <h2 style="margin-bottom:.2rem">Create an account</h2>
+      <p class="muted" style="margin-bottom:1.6rem">Takes less than a minute.</p>
+      <div id="auth-error"></div>
+      <form id="register-form">
+        <div class="form-field"><label>Full name</label><input name="name" required></div>
+        <div class="form-field"><label>Company</label><input name="company" placeholder="Optional"></div>
+        <div class="form-field"><label>Email</label><input type="email" name="email" required></div>
+        <div class="form-row">
+          <div class="form-field"><label>Password</label><input type="password" name="password" required minlength="6"></div>
+          <div class="form-field"><label>Confirm password</label><input type="password" name="confirm_password" required minlength="6"></div>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Create account</button>
+      </form>
+      <p class="muted" style="text-align:center;margin-top:1.4rem;margin-bottom:0">Already have an account? <a href="login.html" style="color:var(--color-accent-600);font-weight:600">Log in</a></p>
+      <p class="muted" style="text-align:center;margin-top:.4rem"><a href="index.html" style="color:var(--color-text-muted)">&larr; Back to site</a></p>
+    </div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
