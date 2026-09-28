@@ -77,18 +77,89 @@ function initModals(){
 }
 
 /* ---- exit-intent quote popup (fires once per session) ---- */
-function initExitIntent(){
-  const modal = document.getElementById('modal-quote');
-  if(!modal) return;
-  if(sessionStorage.getItem('ace_exit_shown')) return;
-  document.addEventListener('mouseout', function handler(e){
-    if(e.clientY > 0) return;
-    if(sessionStorage.getItem('ace_exit_shown')) return;
-    sessionStorage.setItem('ace_exit_shown', '1');
-    openModal('modal-quote');
-    document.removeEventListener('mouseout', handler);
+document.addEventListener("DOMContentLoaded", () => {
+
+  const openButtons = document.querySelectorAll("[data-open-modal]");
+  const closeButtons = document.querySelectorAll("[data-close-modal]");
+
+  const openModal = (modal) => {
+    if (!modal) return;
+
+    modal.classList.add("open");
+    document.body.classList.add("modal-open");
+
+    const closeBtn = modal.querySelector("[data-close-modal]");
+
+    if (closeBtn) {
+      setTimeout(() => closeBtn.focus(), 50);
+    }
+  };
+
+  const closeModal = (modal) => {
+    if (!modal) return;
+
+    modal.classList.remove("open");
+
+    if (!document.querySelector(".modal-overlay.open")) {
+      document.body.classList.remove("modal-open");
+    }
+  };
+
+
+  /* Open */
+
+  openButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const modalId = button.dataset.openModal;
+      const modal = document.getElementById(modalId);
+
+      openModal(modal);
+    });
   });
-}
+
+
+  /* Close button */
+
+  closeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const modal = button.closest(".modal-overlay");
+
+      closeModal(modal);
+    });
+  });
+
+
+  /* Click outside */
+
+  document.querySelectorAll(".modal-overlay").forEach(overlay => {
+
+    overlay.addEventListener("click", event => {
+
+      if (event.target === overlay) {
+        closeModal(overlay);
+      }
+
+    });
+
+  });
+
+
+  /* Escape */
+
+  document.addEventListener("keydown", event => {
+
+    if (event.key !== "Escape") return;
+
+    const openModalElement =
+      document.querySelector(".modal-overlay.open");
+
+    if (openModalElement) {
+      closeModal(openModalElement);
+    }
+
+  });
+
+});
 
 /* ---- quote request form (stored to localStorage, read by dashboard) ---- */
 function seedKey(){ return 'ace_quote_requests'; }
